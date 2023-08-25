@@ -1,10 +1,16 @@
 
   #googlebtn {
-    padding-left: 47%;
+    padding-bottom: 2%;
+
   }
 
 
 #orcolor {
   color: grey;
   padding-top: 3%;
+}
+#googlebtn2 {
+  padding-bottom: 0%;
+  margin-left: 0px;
+
 }
