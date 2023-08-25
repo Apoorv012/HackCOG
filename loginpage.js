@@ -1,10 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-app.js";
 import {
     getAuth,
-    createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
-    onAuthStateChanged,
-    signOut,
     GoogleAuthProvider,
     signInWithPopup
 } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
@@ -35,6 +32,7 @@ const userLogIn = async() => {
     .then((userCredentials) => {
         const user = userCredentials.user;
         alert("You have been signed in!");
+            window.local.href = "/";
     })
     .catch((error) => {
         const errCode = error.code;
@@ -50,6 +48,7 @@ LogInWithGoogleButton.addEventListener("click", () => {
             const token = credential.accessToken;
             const user = result.user;
             alert("Successfully signed in using google!");
+            window.local.href = "/";
         })
         .catch((error) => {
             const errCode = error.code;
