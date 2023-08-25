@@ -23,6 +23,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="signuppage.css" />
     
   </head>
   <body onload="getLocation()">
@@ -51,7 +52,7 @@
                 <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
   
                   <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Sign up</p>
-  
+                  
                   <form class="mx-1 mx-md-4">
   
                     <div class="d-flex flex-row align-items-center mb-4">
@@ -79,23 +80,33 @@
                     </div>
   
                     <div class="d-flex flex-row align-items-center mb-4">
-                      <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                      <i class="fa-solid fa-house fa-lg me-3 fa-fw"></i>
                       <div class="form-outline flex-fill mb-0">
                         <input type="address" id="form3Example4cd" class="form-control" placeholder="Address"/>
                       
                       </div>
                     </div>
   
-                    <div class="form-check d-flex justify-content-center mb-5">
-                      <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3c" />
-                      <label class="form-check-label" for="form2Example3">
-                        I agree all statements in <a href="#!">Terms of service</a>
-                      </label>
-                    </div>
   
-                    <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                      <button type="button" class="btn btn-primary btn-lg">Register</button>
+                    <div class="d-flex justify-content-center mx-0 mb-1 mb-lg-1">
+                      <button type="button" class="btn btn-primary btn-lg">&nbsp&nbsp Register &nbsp&nbsp</button>
                     </div>
+                    <table><tr>
+                      <td style="border-bottom: 1px solid rgba(128, 128, 128, 0.627); width: 50%" >&nbsp;</td>
+                      <td style="vertical-align:middle;text-align:center" rowspan="2" id="orcolor"><p>or</p></td>
+                      <td style="border-bottom: 1px solid rgba(128, 128, 128, 0.627); width:50%">&nbsp;</td>
+                      </tr><tr>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      </tr></table>
+                    
+                  
+                    <p class="text-center">Sign up with</p>
+                  
+                  <button type="button" class="btn btn-link btn-floating mx-1" id="googlebtn">
+                    <i class="fab fa-google"></i>
+                  </button>
+  
   
                   </form>
   
