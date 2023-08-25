@@ -1,0 +1,79 @@
+body {
+  background: #6a11cb;
+  background: -webkit-linear-gradient(
+    to right,
+    rgba(106, 17, 203, 1),
+    rgba(37, 117, 252, 1)
+  );
+  background: linear-gradient(
+    to right,
+    rgba(106, 17, 203, 1),
+    rgba(37, 117, 252, 1)
+  );
+  margin-bottom: 90px;
+}
+
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+  font-size: 1rem;
+  line-height: 2.15;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+}
+.card-registration .select-arrow {
+  top: 13px;
+}
+nav {
+  background-color: rgba(0, 0, 0, 0.747);
+  text-align: center;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+a {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 17px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.selBox {
+  width: 260px;
+  padding-top: 2px;
+  line-height: 170;
+}
+.col-12 {
+  text-align: center;
+}
+select {
+  width: 100px;
+  height: 47px;
+  line-height: 50px;
+  appearance: menulist-button;
+  -webkit-appearance: menulist-button;
+  -moz-appearance: none;
+}
+#password {
+  margin-left: 10px;
+  width: 260px;
+}
+#countrybox {
+  margin-left: 10px;
+  width: 260px;
+}
+#Gamertag {
+  width: 260px;
+}
+#emailAddress {
+  width: 260px;
+}
+#Discord {
+  width: 260px;
+}
+#logo {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 5px;
+}
