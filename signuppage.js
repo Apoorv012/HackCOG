@@ -10,9 +10,11 @@ import {
 } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
 
 const LoginButton = document.getElementById("submit_btn");
+const nameText = document.getElementById("nameTextField");
 const emailText = document.getElementById("typeEmailX");
 const passwdText = document.getElementById("typePasswordX");
-const LogInWithGoogleButton = document.getElementById("googlebtn");
+const addressText = document.getElementById("addressTextField");
+const SignUpWithGoogleButton = document.getElementById("googlebtn");
 
 const firebaseConfig = {
     apiKey: "AIzaSyC1brUIhjSaqiREif6IvBLfeYrqJMwIcnk",
@@ -28,13 +30,14 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
-const userLogIn = async() => {
-    const LogInEmail = emailText.value;
-    const LogInPassword = passwdText.value;
-    signInWithEmailAndPassword(auth, LogInEmail, LogInPassword)
+
+const userSignUp = async() => {
+    const signUpEmail = emailText.value;
+    const signUpPassword = passwdText.value;
+    createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
     .then((userCredentials) => {
         const user = userCredentials.user;
-        alert("You have been signed in!");
+        alert("Your account have been made!");
     })
     .catch((error) => {
         const errCode = error.code;
@@ -43,13 +46,13 @@ const userLogIn = async() => {
     })
 }
 
-LogInWithGoogleButton.addEventListener("click", () => {
+SignUpWithGoogleButton.addEventListener("click", () => {
     signInWithPopup(auth, provider)
         .then((result) => {
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
             const user = result.user;
-            alert("Successfully signed in using google!");
+            alert("Successfully signed up using google!");
         })
         .catch((error) => {
             const errCode = error.code;
@@ -61,7 +64,7 @@ LogInWithGoogleButton.addEventListener("click", () => {
 
 LoginButton.addEventListener("click", () => {
     if (!isFormValid()) return;
-    userLogIn();
+    userSignUp();
 });
 
 function isFormValid() {
