@@ -4,13 +4,15 @@ import {
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     onAuthStateChanged,
-    signOut
+    signOut,
+    GoogleAuthProvider,
+    signInWithPopup
 } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-analytics.js";
 
 const LoginButton = document.getElementById("submit_btn");
 const emailText = document.getElementById("typeEmailX");
 const passwdText = document.getElementById("typePasswordX");
+const LogInWithGoogleButton = document.getElementById("googlebtn");
 
 const firebaseConfig = {
     apiKey: "AIzaSyC1brUIhjSaqiREif6IvBLfeYrqJMwIcnk",
@@ -23,8 +25,8 @@ const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
 
 const userLogIn = async() => {
     const LogInEmail = emailText.value;
@@ -40,6 +42,22 @@ const userLogIn = async() => {
         console.log(errCode + errMsg);
     })
 }
+
+LogInWithGoogleButton.addEventListener("click", () => {
+    signInWithPopup(auth, provider)
+        .then((result) => {
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+            const user = result.user;
+            alert("Successfully signed in using google!");
+        })
+        .catch((error) => {
+            const errCode = error.code;
+            const errMsg = error.message;
+            
+            console.log(errCode + errMsg);
+        });
+})
 
 LoginButton.addEventListener("click", () => {
     if (!isFormValid()) return;
