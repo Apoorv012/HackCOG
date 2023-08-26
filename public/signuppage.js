@@ -6,7 +6,7 @@ import {
     signInWithPopup
 } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
 
-import { getFirestore } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-firestore.js";
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-firestore.js";
 
 
 const LoginButton = document.getElementById("submit_btn");
@@ -35,20 +35,23 @@ const db = getFirestore(app);
 const userSignUp = async () => {
     const signUpEmail = emailText.value;
     const signUpPassword = passwdText.value;
-    createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
+    await createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
         .then((userCredentials) => {
             const user = userCredentials.user;
-            
+            console.log(db.collection("userData"));
+
             db.collection("userData").doc(signUpEmail).set({
                 owner: auth.currentUser.uid,
                 Name: nameText.value,
                 Email: signUpEmail,
                 Password: signUpPassword,
                 Address: addressText.value,
-            });
-            
+            })
+            console.log("Document successfully written!");
             alert("Your account have been made!");
-            window.local.href = "/";
+            window.local.local = "https://enovate-7c07a.web.app/signuppage.html";
+
+
         })
         .catch((error) => {
             const errCode = error.code;

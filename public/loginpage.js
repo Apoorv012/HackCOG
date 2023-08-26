@@ -32,7 +32,7 @@ const userLogIn = async() => {
     .then((userCredentials) => {
         const user = userCredentials.user;
         alert("You have been signed in!");
-            window.local.href = "/";
+            window.local.replace = "https://enovate-7c07a.web.app/";
     })
     .catch((error) => {
         const errCode = error.code;
