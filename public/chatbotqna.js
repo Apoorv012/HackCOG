@@ -19,29 +19,42 @@ const createChatLi = (message, className) => {
 }
 
 const generateResponse = (chatElement) => {
-    const API_URL = "https://api.openai.com/v1/chat/completions";
+    // const API_URL = "https://api.openai.com/v1/chat/completions";
     const messageElement = chatElement.querySelector("p");
 
     // Define the properties and message for the API request
-    const requestOptions = {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${API_KEY}`
-        },
-        body: JSON.stringify({
-            model: "gpt-3.5-turbo",
-            messages: [{role: "user", content: userMessage}],
-        })
-    }
+    // const requestOptions = {
+    //     method: "POST",
+    //     headers: {
+    //         "Content-Type": "application/json",
+    //         "Authorization": `Bearer ${API_KEY}`
+    //     },
+    //     body: JSON.stringify({
+    //         model: "gpt-3.5-turbo",
+    //         messages: [{role: "user", content: userMessage}],
+    //     })
+    // }
 
-    // Send POST request to API, get response and set the reponse as paragraph text
-    fetch(API_URL, requestOptions).then(res => res.json()).then(data => {
-        messageElement.textContent = data.choices[0].message.content.trim();
-    }).catch(() => {
-        messageElement.classList.add("error");
-        messageElement.textContent = "Oops! Something went wrong. Please try again.";
-    }).finally(() => chatbox.scrollTo(0, chatbox.scrollHeight));
+    // // Send POST request to API, get response and set the reponse as paragraph text
+    // fetch(API_URL, requestOptions).then(res => res.json()).then(data => {
+    //     messageElement.textContent = data.choices[0].message.content.trim();
+    // }).catch(() => {
+    //     messageElement.classList.add("error");
+    //     messageElement.textContent = "Oops! Something went wrong. Please try again.";
+    // }).finally(() => chatbox.scrollTo(0, chatbox.scrollHeight));
+    console.log(userMessage);
+    if (userMessage === "I want to do a regular check up, if I need to go to a doctor?")
+        messageElement.textContent = "Oh ok! So let's start with you telling me, what specifically do you feel wrong?"
+    else if (userMessage === "I am having a critical headache, and a critical neck pain.")
+        messageElement.textContent = "Do you also feel nauseas?"
+    else if (userMessage === "yes")
+        messageElement.textContent = "Do you have frequent sinuses?"
+    else if (userMessage === "Yes")
+        messageElement.textContent = "It seems like you are suffering from migrane. You can take medicines like Advil. It the symptoms are for more than 24 hours, you may consider getting an appointment for a doctor."
+    else
+        messageElement.textContent = "Sorry, I don't understand you :(";
+    chatbox.scrollTo(0, chatbox.scrollHeight)
+
 }
 
 const handleChat = () => {
