@@ -2,12 +2,12 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.3.0/firebas
 import {
     getAuth,
     createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    onAuthStateChanged,
-    signOut,
     GoogleAuthProvider,
     signInWithPopup
 } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-auth.js";
+
+import { getFirestore } from "https://www.gstatic.com/firebasejs/10.3.0/firebase-firestore.js";
+
 
 const LoginButton = document.getElementById("submit_btn");
 const nameText = document.getElementById("nameTextField");
@@ -30,20 +30,31 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
+const db = getFirestore(app);
 
-const userSignUp = async() => {
+const userSignUp = async () => {
     const signUpEmail = emailText.value;
     const signUpPassword = passwdText.value;
     createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
-    .then((userCredentials) => {
-        const user = userCredentials.user;
-        alert("Your account have been made!");
-    })
-    .catch((error) => {
-        const errCode = error.code;
-        const errMsg = error.message;
-        console.log(errCode + errMsg);
-    })
+        .then((userCredentials) => {
+            const user = userCredentials.user;
+            
+            db.collection("userData").doc(signUpEmail).set({
+                owner: auth.currentUser.uid,
+                Name: nameText.value,
+                Email: signUpEmail,
+                Password: signUpPassword,
+                Address: addressText.value,
+            });
+            
+            alert("Your account have been made!");
+            window.local.href = "/";
+        })
+        .catch((error) => {
+            const errCode = error.code;
+            const errMsg = error.message;
+            console.log(errCode + errMsg);
+        })
 }
 
 SignUpWithGoogleButton.addEventListener("click", () => {
@@ -53,11 +64,12 @@ SignUpWithGoogleButton.addEventListener("click", () => {
             const token = credential.accessToken;
             const user = result.user;
             alert("Successfully signed up using google!");
+            window.local.href = "/";
         })
         .catch((error) => {
             const errCode = error.code;
             const errMsg = error.message;
-            
+
             console.log(errCode + errMsg);
         });
 })
