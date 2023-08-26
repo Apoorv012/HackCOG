@@ -1,31 +1,44 @@
 body {
   
-    background-image: url(./images/indexbackground.jpeg);
+    background-image: url(./images/indexbg2.jpeg);
     background-size: contain;
   }
   
   #content {
     
     text-align: left;
-    padding-top: 8%;
+    
     color: white;
     margin-right: 500px;
   }
+
+  
+  h2 {
+    font-weight:500;
+    font-size: 100px;
+    padding-top: 30%;
+  }
   h1 {
-    padding-top: 20%;
-    font-weight: 900;
+    padding-top: 10%;
+    font-weight: 500;
     font-size: 70px;
    
   }
   h3 {
-    font-weight: 900;
-    font-size: 30px;
-    padding-bottom: 20%;
+    font-weight:300;
+    font-size: 20px;
+
+  }
+  h4 {
+    font-weight:500;
+    font-size: 100px;
+   
   }
   #text1 {
     color: black;
     font-weight: 900;
-    font-size: 50px;
+    font-size: 60px;
+    padding-bottom: 2%;
   }
   #text2 {
     color: black;
@@ -114,21 +127,7 @@ body {
     background-repeat: no-repeat;
     background-position: center center;
   }
-  .fixed-bg.bg-3 {
-    background: white;
-  }
-  .fixed-bg.bg-2 {
-    background: #eeeeee;
-  }
-  .fixed-bg.bg-3 {
-    background: white;
-  }
-  .fixed-bg.bg-4 {
-    background: #f6f6f6;
-  }
-  .fixed-bg.bg-5 {
-    background: #1de9fd;
-  }
+  
   .first {
     background: #1de9fd;
     width: 100%;
@@ -150,10 +149,10 @@ body {
     width: 500px;
   }
   #title1 {
-    color: white;
+    color: black;
   }
   #title2 {
-    color: yellow;
+    color: black;
   }
   #logo {
     width: 20px;
@@ -164,4 +163,48 @@ body {
     /* float: right; */
     display: flexbox;
     justify-content: end;
+  }
+  .btn-default {
+    font-family: Raleway-SemiBold;
+    font-size: 13px;
+    color: black;
+    letter-spacing: 1px;
+    line-height: 15px;
+    border: 2px black;
+    border-radius: 40px;
+    background: white;
+    transition: all 0.3s ease 0s;
+  }
+  
+  .btn-default:hover {
+    color: #FFF;
+    background: rgba(108, 88, 179, 0.75);
+    border: 2px solid rgba(108, 89, 179, 0.75);
+  }
+  
+  .btn-primary {
+    font-family: Raleway-SemiBold;
+    font-size: 13px;
+    color: rgba(58, 133, 191, 0.75);
+    letter-spacing: 1px;
+    line-height: 15px;
+    border: 2px solid rgba(58, 133, 191, 0.75);
+    border-radius: 40px;
+    background: transparent;
+    transition: all 0.3s ease 0s;
+  }
+  
+  .btn-primary:hover {
+    color: #FFF;
+    background: rgba(58, 133, 191, 0.75);
+    border: 2px solid rgba(58, 133, 191, 0.75);
+  }
+  .imgfluid {
+    height: 200px;
+    width: 200px;
+  }
+  h1 {
+    font-weight:500;
+    font-size: 60px;
+    padding-top: 30%;
   }
